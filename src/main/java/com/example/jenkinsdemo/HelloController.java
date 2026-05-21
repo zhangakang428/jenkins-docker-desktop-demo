@@ -12,7 +12,7 @@ public class HelloController {
     @GetMapping("/hello")
     public Map<String, String> hello() {
         return Map.of(
-                "message", "Hello from Jenkins auto build",
+                "message", "Hello from Jenkins auto build1",
                 "timestamp", Instant.now().toString()
         );
     }
