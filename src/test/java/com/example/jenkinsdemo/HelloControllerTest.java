@@ -22,6 +22,6 @@ class HelloControllerTest {
     void helloReturnsMessage() throws Exception {
         mockMvc.perform(get("/hello"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.message", is("Hello from Jenkins Docker Desktop demo")));
+                .andExpect(jsonPath("$.message", is("Hello from Jenkins auto build")));
     }
 }
