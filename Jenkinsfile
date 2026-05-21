@@ -34,7 +34,7 @@ pipeline {
             steps {
                 sh '''
                     set -eu
-                    docker build --provenance=false -t "${IMAGE_TAG}" .
+                    docker buildx build --provenance=false --load -t "${IMAGE_TAG}" .
                 '''
             }
         }

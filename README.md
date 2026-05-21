@@ -20,7 +20,7 @@ Do not use this setup as-is for production.
 
 The image tag must stay on `localhost:5000`.
 The Docker commands in Jenkins run through the mounted Docker socket, so `docker push` and `docker pull` are executed by the Docker Desktop daemon.
-The pipeline builds images with `--provenance=false` so the local `registry:2` container accepts the pushed manifest.
+The pipeline uses `docker buildx build --provenance=false --load` so the local `registry:2` container receives a manifest it accepts.
 Inside Jenkins, `registry:5000` is only for container-to-container curl checks such as:
 
 ```bash
