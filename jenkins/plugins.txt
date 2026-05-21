@@ -1,0 +1,7 @@
+workflow-aggregator
+pipeline-model-definition
+git
+pipeline-stage-view
+credentials
+plain-credentials
+scm-api

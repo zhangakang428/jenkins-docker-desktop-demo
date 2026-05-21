@@ -1,0 +1,41 @@
+name: jenkins-demo
+
+services:
+  jenkins:
+    build:
+      context: ./jenkins
+    container_name: jenkins-demo-jenkins
+    user: root
+    ports:
+      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - maven_repo:/var/jenkins_home/.m2/repository
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - jenkins-demo-net
+
+  registry:
+    image: registry:2
+    container_name: jenkins-demo-registry
+    ports:
+      - "127.0.0.1:5000:5000"
+    volumes:
+      - registry_data:/var/lib/registry
+    networks:
+      - jenkins-demo-net
+
+networks:
+  jenkins-demo-net:
+    name: jenkins-demo-net
+    driver: bridge
+
+volumes:
+  jenkins_home:
+    name: jenkins_home
+  maven_repo:
+    name: maven_repo
+    external: true
+  registry_data:
+    name: registry_data
