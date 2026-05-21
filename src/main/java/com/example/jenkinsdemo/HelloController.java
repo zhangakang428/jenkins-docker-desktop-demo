@@ -12,7 +12,8 @@ public class HelloController {
     @GetMapping("/hello")
     public Map<String, String> hello() {
         return Map.of(
-                "message", "Hello from Jenkins Docker Desktop demo",
+                // "message", "Hello from Jenkins Docker Desktop demo",
+                "message", "Hello from Jenkins auto build",
                 "timestamp", Instant.now().toString()
         );
     }
